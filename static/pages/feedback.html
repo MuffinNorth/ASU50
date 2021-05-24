@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Отзывы</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="CSS/header-and-footer.css" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!--Шапка-->
+<div class="asu-header d-flex justify-content-evenly align-items-center">
+    <div class="asu-header-title">
+        50-летие<br>
+        специальности<br>
+        «Автоматизированные<br>
+        системы управления»
+    </div>
+    <div class="col-2 d-none d-sm-block">
+    </div>
+    <div class="asu-header-logo d-none d-sm-block">
+    </div>
+</div>
+<!--Навигационная панель-->
+<header class="asu-navbar sticky-top navbar navbar-expand-sm navbar-light">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <span class="navbar-toggler asu-link-active">Отзывы</span>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="navbar-nav justify-content-evenly" style="width: 100%">
+                <div class="nav-item">
+                    <a class="nav-link" href="/">Главная</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" href="/history">История</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link  asu-link-active" href="/feedback">Отзывы</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" href="/essay">Очерки</a>
+                </div>
+                <div class="nav-item">
+                    <a class="nav-link" href="/archive">Медиаархив</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="modal fade " id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header asu-footer">
+                <h5 class="modal-title" id="exampleModalLabel">Написать свой отзыв</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="feedForm" class="" enctype="multipart/form-data">
+                    <div class="d-flex">
+                        <input class="form-control m-2" type="text" placeholder="Ваше имя и фамилия" name="name">
+                        <input class="form-control m-2" type="email" placeholder="Ваш email" name="email">
+                    </div>
+                    <div class="d-flex">
+                        <input class="form-control m-2" type="text" placeholder="Город" name="city">
+                        <input class="form-control m-2" type="text" placeholder="Место работы" name="workplace">
+                    </div>
+                    <div class="d-flex">
+                        <input class="form-control m-2" type="text" placeholder="Группа" name="group">
+                        <input class="form-control m-2" type="file"  name="avatar">
+                    </div>
+                    <input type="hidden" name="from" value="0">
+                    <div>
+                        <textarea class="form-control" name="review" rows="15"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" onclick="addFeedback()" class="btn btn-primary">Отправить отзыв</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row justify-content-center text-center my-3">
+        <div class="asu-feedback-title col-11 col-sm-6 col-md-5 col-lg-4" onclick="openModal()">
+            <h2><strong>Написать свой отзыв</strong></h2>
+        </div>
+    </div>
+    <!--<div class="row justify-content-evenly">
+        <a href="#" class="col-auto nav-link">
+            <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
+            Сортировать по новым
+        </a>
+        <a href="#" class="col-auto nav-link">
+            <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i>
+            Сортировать по группам
+        </a>
+    </div>-->
+
+    <div class="">
+        <div class="row justify-content-center" id="placeholder">
+
+        </div>
+        <div class="row justify-content-center">
+            <div class="fs-2 col-6 d-flex justify-content-evenly" id="pages">
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="asu-footer d-flex flex-column flex-md-row justify-content-center justify-content-md-evenly align-items-baseline align-items-md-center pt-0 pt-md-3 pb-0 pb-md-3">
+    <div class="m-2 m-md-0">
+        <strong>Контакты дирекции Института ИТиАД:</strong><br>
+        664074, г. Иркутск, ул. Лермонтова 83<br>
+        <strong>Офис:</strong> ауд. В-210<br>
+        <strong>Телефон:</strong> +7 (3952) 40-51-60<br>
+        <strong>E-mail:</strong> <a class="link-light" href="mailto:itda@istu.edu">itda@istu.edu</a><br>
+        <strong>Часы работы:</strong> 09:00-17:00<br>
+    </div>
+    <br>
+    <div class="m-2 m-md-0">
+        <strong>Сайт ИРНИТУ:</strong><br>
+        <a class="link-light" href="http://www.istu.edu">http://www.istu.edu</a><br>
+        <br>
+        <strong>ИИТиАД Вконтакте:</strong><br>
+        <a class="link-light" href="https://vk.com/itds_istu">https://vk.com/itds_istu</a><br>
+    </div>
+    <br>
+    <div class="d-flex justify-content-between m-2 m-md-0">
+        <div class="iPolitech mx-2"></div>
+        <div class="itiad mx-2"></div>
+    </div>
+</footer>
+
+<script src="/JS/jquery.js"></script>
+<script src="https://use.fontawesome.com/61c29c7e04.js"></script>
+<script src="/JS/bootstrap.bundle.js"></script>
+<script src="/JS/feedback.page.js"></script>
+</body>
+</html>
