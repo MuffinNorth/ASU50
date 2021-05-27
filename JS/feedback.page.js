@@ -1,5 +1,5 @@
 const exampleCard = '<div class="asu-feedback-card col-12 col-md-8 d-flex flex-column flex-md-row my-2">\n' +
-    '                <div class="m-3 mt-5">\n' +
+    '                <div class="m-3 mt-4">\n' +
     '                    <img class="asu-avatar" src="/static/imgs/avatars/{avatar}">\n' +
     '                </div>\n' +
     '                <div class="container-fluid">\n' +
