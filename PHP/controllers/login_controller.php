@@ -7,7 +7,8 @@ function login($username, $password){
     $result = $result->fetch_assoc();
     if(password_verify($password, $result['password'])){
         $token = generateToken();
-        $sql = "UPDATE `admins` SET `token` = '$token' WHERE `admins`.`username` = $username";
+        $sql = "UPDATE `admins` SET `token` = '$token' WHERE `admins`.`login` = '$username'";
+        $res = $mysqli->query($sql);
         return $token;
     }
     return false;

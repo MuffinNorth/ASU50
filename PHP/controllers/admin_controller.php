@@ -40,7 +40,7 @@ else
     if(!$_SESSION['logindata']['isLogin']){
         header('Location: /admin/login');
     }else{
-        include "./static/pages/admin_pages/moderation.html";
+        include "./static/pages/admin_pages/moderation.php";
     }
 }
 

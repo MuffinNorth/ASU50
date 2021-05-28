@@ -6,6 +6,9 @@ if(isset($URI[1])){
     }elseif ($URI[1] == "addFeedback"){
         include "./PHP/addFeedbacks.php";
     }
+    elseif ($URI[1] == "aGetFeedbacks"){
+        include "./PHP/adminGetFeedbacks.php";
+    }
     else{
         echo "404";
     }
