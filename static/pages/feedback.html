@@ -61,20 +61,39 @@
             </div>
             <div class="modal-body">
                 <form id="feedForm" class="" enctype="multipart/form-data">
-                    <div class="d-flex">
-                        <input class="form-control m-2" type="text" placeholder="Ваше имя и фамилия" name="name">
-                        <input class="form-control m-2" type="email" placeholder="Ваш email" name="email">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="name">Имя и фамилия*:</label>
+                            <input class="form-control m-2" type="text" placeholder="Ваше имя и фамилия" name="name">
+                        </div>
+                        <div class="col-6">
+                            <label for="email">Электронная почта*:</label>
+                            <input class="form-control m-2" type="email" placeholder="Ваш email" name="email">  
+                        </div>
                     </div>
-                    <div class="d-flex">
-                        <input class="form-control m-2" type="text" placeholder="Город" name="city">
-                        <input class="form-control m-2" type="text" placeholder="Место работы" name="workplace">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="name">Город*:</label>
+                            <input class="form-control m-2" type="text" placeholder="Город" name="city">
+                        </div>
+                        <div class="col-6">
+                            <label for="email">Место работы:</label>
+                            <input class="form-control m-2" type="email" placeholder="Место работы" name="workplace">  
+                        </div>
                     </div>
-                    <div class="d-flex">
-                        <input class="form-control m-2" type="text" placeholder="Группа" name="group">
-                        <input class="form-control m-2" type="file"  name="avatar">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="name">Группа*:</label>
+                            <input class="form-control m-2" type="text" placeholder="Группа" name="group">
+                        </div>
+                        <div class="col-6">
+                            <label for="email">Фотография:</label>
+                            <input class="form-control m-2" type="file"  name="avatar">
+                        </div>
                     </div>
                     <input type="hidden" name="from" value="0">
                     <div>
+                        <label for="email">Отзыв:</label>
                         <textarea class="form-control" name="review" rows="15"></textarea>
                     </div>
                 </form>
@@ -88,7 +107,7 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center text-center my-3">
-        <div class="asu-feedback-title col-11 col-sm-6 col-md-5 col-lg-4" onclick="openModal()">
+        <div class="asu-feedback-title col-11 col-sm-6 col-md-5 col-lg-4" style="cursor: pointer" onclick="openModal()">
             <h2><strong>Написать свой отзыв</strong></h2>
         </div>
     </div>
@@ -105,7 +124,9 @@
 
     <div class="">
         <div class="row justify-content-center" id="placeholder">
-
+            <div class="spinner-border my-4" style="width: 3rem; height: 3rem;" role="status">
+                <span class="visually-hidden">Загрузка...</span>
+              </div>
         </div>
         <div class="row justify-content-center">
             <div class="fs-2 col-6 d-flex justify-content-evenly" id="pages">

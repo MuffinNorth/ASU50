@@ -1,6 +1,6 @@
 <?php
     header("Content-Type: application/json");
-    $sql = "SELECT `id`, `name`, `group`, `review`, `city`, `avatar_path` FROM `feedbacks` WHERE feedbacks.moderation_type=1";
+    $sql = "SELECT `id`, `name`, `group`, `review`, `city`, `avatar_path` FROM `feedbacks` WHERE feedbacks.moderation_type=1 and (not feedbacks.review = '')";
     $result = $mysqli->query($sql);
     $out = array();
     $out["size"] = $result->num_rows;

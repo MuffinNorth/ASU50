@@ -6,14 +6,10 @@
         $result = $mysqli->query($sql);
         $result = $result->fetch_assoc();
         if($result['token'] == $_GET['token']){
-            $type = $_GET['type'];
-            $sql = "SELECT * FROM `feedbacks` WHERE moderation_type = $type";
+            $id= $_GET['id'];
+            $sql = "SELECT * FROM `feedbacks` WHERE `id`=$id";
             $result = $mysqli->query($sql);
-            $out = array();
-            $out["size"] = $result->num_rows;
-            for($i = 1; $i <= $result->num_rows; $i++){
-                $out[$i] = $result->fetch_assoc();
-            }
+            $out = $result->fetch_assoc();
             echo json_encode($out, JSON_UNESCAPED_UNICODE);
         }else{
             echo json_encode(true, JSON_UNESCAPED_UNICODE);

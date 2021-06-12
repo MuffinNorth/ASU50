@@ -4,7 +4,9 @@ require_once "./PHP/dbconnetion.php";
 function write_log($username, $what){
     global $mysqli;
     $id = getID($username);
-    $sql = "INSERT INTO `admin_log` (`who`, `when`, `what`) VALUES '$id', '', '',)";
+    $date = "2021-05-18 04:15:11";
+    $sql = "INSERT INTO `admin_log` (`who`, `when`, `what`) VALUES ('$id', NOW(), '$what')";
+    $mysqli->query($sql);
 }
 
 function getID($username){

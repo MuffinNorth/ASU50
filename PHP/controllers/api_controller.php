@@ -8,6 +8,8 @@ if(isset($URI[1])){
     }
     elseif ($URI[1] == "aGetFeedbacks"){
         include "./PHP/adminGetFeedbacks.php";
+    }elseif($URI[1] == "aGetFeedbackById"){
+        include_once "./PHP/getFeedbacById.php";
     }
     else{
         echo "404";

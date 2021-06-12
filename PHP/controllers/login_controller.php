@@ -1,5 +1,6 @@
 <?php
 require_once "./PHP/dbconnetion.php";
+require_once "./PHP/controllers/log_controller.php";
 function login($username, $password){
     global $mysqli;
     $sql = "SELECT `password` FROM `admins` WHERE `login`='$username'";
@@ -9,6 +10,7 @@ function login($username, $password){
         $token = generateToken();
         $sql = "UPDATE `admins` SET `token` = '$token' WHERE `admins`.`login` = '$username'";
         $res = $mysqli->query($sql);
+        write_log($username, "Вошёл в панель модератора");
         return $token;
     }
     return false;
