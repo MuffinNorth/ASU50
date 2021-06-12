@@ -86,12 +86,21 @@ $(document).ready(()=>{
         token: token,
         type: 0
     }
-    $("#count").empty();
     $.get('/api/aGetFeedbacks', data, (e)=>{
-        $("#count").append("+" + e.size)
+        $("#count").html("+" + e.size)
     })
-    
 })
+setInterval(()=>{
+    const data = {
+        username: username,
+        token: token,
+        type: 0
+    }
+    $.get('/api/aGetFeedbacks', data, (e)=>{
+        $("#count").html("+" + e.size)
+    })
+}, 2500) 
+
 
 
 let typeOfFeedbacks = 0;
@@ -106,13 +115,23 @@ const getFeeds = () =>{
     $("#feedholder").empty();
     $.get('/api/aGetFeedbacks', data, (e)=>{
         const array = JSON.parse(JSON.stringify(e))
+        let end = [];
         for(let i = 1; i <= e.size; i++){
-            feedbacks[i-1] = array[i];
-            addFeedbacks(array[i]);
+            console.log(array[i]);
+            if(array[i].review == ""){
+                end.push(array[i]);
+            }else{
+                feedbacks[i-1] = array[i];
+                addFeedbacks(array[i]);
+            }
+        }
+        for(let val of end){
+            addFeedbacks(val);
         }
         if(e.size == 0){
             $("#feedholder").append("Пока отзывов нет!")
         }
+        
     })
 }
 
@@ -179,9 +198,8 @@ const changeTypeOfFeedbacks = (type) =>{
         token: token,
         type: 0
     }
-    $("#count").empty();
     $.get('/api/aGetFeedbacks', data, (e)=>{
-        $("#count").append("+"+e.size)
+        $("#count").html("+" + e.size)
     })
 }
 
@@ -193,6 +211,7 @@ const accept = (id) => {
     }
     $.get('/admin/accept', data, (e)=>{
         changeTypeOfFeedbacks(typeOfFeedbacks);
+        log("Отзыв был одобрен", '#3caa3c')
     })
     
 }
@@ -205,6 +224,7 @@ const deny = (id) => {
     }
     $.get('/admin/deny', data, (e)=>{
         changeTypeOfFeedbacks(typeOfFeedbacks);
+        log("Отзыв был добавлен в корзину", '#ff2400')
     })
 }
 
@@ -218,6 +238,7 @@ const del = (id) => {
         }
         $.get('/admin/delete', data, (e)=>{
             changeTypeOfFeedbacks(typeOfFeedbacks);
+            log("Отзыв был удален", '#ff2400')
         })
     }
 }
@@ -235,6 +256,7 @@ const toStar = (id) => {
         }
         $.get('/admin/star', data, (e)=>{
             console.log(e);
+            log("Отзыв был отмечен как избранный", '#f3da0b')
         })
     }else{
         $(".b" + id).addClass("btn-outline-warning")
@@ -248,6 +270,7 @@ const toStar = (id) => {
         }
         $.get('/admin/star', data, (e)=>{
             console.log(e);
+            log("Отзыв был убран из избранного", '#f3da0b')
         })
     }
     
@@ -264,7 +287,6 @@ const editFeed = (id)=>{
         id: id
     }
     $.get('/api/aGetFeedbackById', data, (e)=>{
-        console.log(e);
         myModal.show()
         e = JSON.parse(JSON.stringify(e))
         $("#mname").val(e.name);
@@ -278,6 +300,64 @@ const editFeed = (id)=>{
     
 }
 
-const updateFeedback = () =>{
-    console.log($("#mid").val())
+const moderModal = new bootstrap.Modal(document.getElementById('moderModal'))
+const opeModer = ()=>{    
+    moderModal.show();
 }
+
+
+const updateFeedback = () =>{
+    const data = {
+        username: username,
+        token: token,
+        id: $("#mid").val(),
+        name: $("#mname").val(),
+        group: $("#mgroup").val(),
+        review: $("#mreview").val(),
+        city: $("#mcity").val(),
+        workplace: $("#mworkplace").val(),
+        email: $("#memail").val(),
+    }
+    let isGood = true;
+    if (!(data.name && data.name.trim().length)) {  
+        $("#mname").addClass("is-invalid");
+        isGood = false;
+    }else{
+        $("#mname").removeClass("is-invalid");
+    }
+
+    if (!(data.group && data.group.trim().length)) {  
+        $("#mgroup").addClass("is-invalid");
+        isGood = false;
+    }else{
+        $("#mgroup").removeClass("is-invalid");
+    }
+
+    if (!(data.city && data.city.trim().length)) {  
+        $("#mcity").addClass("is-invalid");
+        isGood = false;
+    }else{
+        $("#mcity").removeClass("is-invalid");
+    }
+
+
+    if (!(data.email && data.email.trim().length)) {  
+        $("#memail").addClass("is-invalid");
+        isGood = false;
+    }else{
+        $("#memail").removeClass("is-invalid");
+    }
+
+    if(isGood){
+        $.get('/admin/edit', data, (e)=>{
+            myModal.hide();
+            changeTypeOfFeedbacks(typeOfFeedbacks);
+            log("Отзыв был отредактирован", '#ffa500')
+        })
+    }
+}
+
+
+
+
+

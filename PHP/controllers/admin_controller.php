@@ -48,6 +48,12 @@ if(isset($URI[1])){
     if($URI[1] == "star"){
         include_once "./PHP/starFeedback.php";
     }
+    if($URI[1] == "edit"){
+        include_once "./PHP/editFeedback.php";
+    }
+    if($URI[1] == "settings"){
+        include_once "./static/pages/admin_pages/settings.php";
+    }
     
 }
 else

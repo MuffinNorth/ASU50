@@ -13,7 +13,8 @@ const exampleCard = '<div class="asu-feedback-card col-12 col-md-8 d-flex flex-c
     '                    </div>\n' +
     '                </div>\n' +
     '            </div>'
-const pageExample = '<a onclick="update({num})">{num}</a>';
+const pageExample = '<li class="page-item" style="cursor: pointer"><a class="page-link" onclick="update({num})">{num}</a></li>'
+const pageActiveExample = '<li class="page-item active"><a class="page-link")">{num}</a></li>'
 const cardOnScreen = 5
 let feedbackList = [];
 let nowPage = 1;
@@ -23,9 +24,14 @@ $(document).ready(()=>{
         const array = JSON.parse(JSON.stringify(e))
         feedbackList = array
         render(nowPage);
+        $("#pages")
         if(feedbackList['size'] > cardOnScreen){
             for(let i = 1; i < e.size/cardOnScreen+1; i++){
-                $("#pages").append(pageExample.replace("{num}", i).replace("{num}", i).replace("{num}", i))
+                if(i == nowPage){
+                    $("#pages").append(pageActiveExample.replace("{num}", i).replace("{num}", i))
+                }else{
+                    $("#pages").append(pageExample.replace("{num}", i).replace("{num}", i))
+                }
             }
         }
     })
@@ -45,7 +51,18 @@ const render = (pageNum) => {
 
 const update = (num) =>{
     nowPage = num;
+    $("#pages").empty();
+    if(feedbackList['size'] > cardOnScreen){
+        for(let i = 1; i < feedbackList.size/cardOnScreen+1; i++){
+            if(i == nowPage){
+                $("#pages").append(pageActiveExample.replace("{num}", i).replace("{num}", i))
+            }else{
+                $("#pages").append(pageExample.replace("{num}", i).replace("{num}", i))
+            }
+            }
+        }
     render(nowPage);
+    
 }
 
 
