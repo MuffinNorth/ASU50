@@ -62,6 +62,40 @@ a { text-decoration: none; }
     width: 128px;
     border-radius: 5px;
 }
+.button-style{
+	font-weight: 700; 
+    font-size: 24px; 
+    line-height: 30px; 
+    background: linear-gradient(90deg, #0CADC2 -9.35%, #082AA0 103.26%);
+}
+.gradient{
+    background: linear-gradient(87.64deg, #0CADC2 0.84%, #082AA0 116.97%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: #0B2349;
+}
+.text-indent{
+    text-indent: 40px
+}
+@media (min-width: 576px) {
+    .giantText{
+        font-weight: 700; font-size: 72px;
+    }
+}
+@media (min-width: 768px) {
+    .giantText{
+        font-weight: 700; font-size: 144px;
+    }
+}
+@media (min-width: 992px) {
+    .giantText{
+        font-weight: 700; font-size: 288px;
+    }
+}
+@media (min-width: 1200px) {
+    .giantText{
+        font-weight: 700; font-size: 288px;
+    }
+}
+
+
 .hover{
     color: #0CADC2 !important;
 }
