@@ -11,7 +11,7 @@
 </head>
 <body>
 <!--Шапка-->
-<div class="asu-header d-flex justify-content-evenly align-items-center">
+<div id="scrollUp" class="asu-header d-flex justify-content-evenly align-items-center">
     <div class="asu-header-title">
         50-летие<br>
         специальности<br>
@@ -64,27 +64,28 @@
                     <div class="row">
                         <div class="col-6">
                             <label for="name">Имя и фамилия*:</label>
-                            <input class="form-control m-2" type="text" placeholder="Ваше имя и фамилия" name="name">
+                            <input class="form-control m-2" type="text" id="name" placeholder="Ваше имя и фамилия" name="name">
                         </div>
                         <div class="col-6">
                             <label for="email">Электронная почта*:</label>
-                            <input class="form-control m-2" type="email" placeholder="Ваш email" name="email">  
+                            <input class="form-control m-2" type="email" id="email" placeholder="Ваш email" name="email">  
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-6">
                             <label for="name">Город*:</label>
-                            <input class="form-control m-2" type="text" placeholder="Город" name="city">
+                            <input class="form-control m-2" type="text" id="city" placeholder="Город" name="city">
                         </div>
                         <div class="col-6">
                             <label for="email">Место работы:</label>
                             <input class="form-control m-2" type="email" placeholder="Место работы" name="workplace">  
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-6">
+                    <div class="row flex-row justify-content-between">
+                        <div class="col-5 mt-2 ms-2">
                             <label for="name">Группа*:</label>
-                            <input class="form-control m-2" type="text" placeholder="Группа" name="group">
+                            <select id="group" class="form-control" name="group">
+                            </select>
                         </div>
                         <div class="col-6">
                             <label for="email">Фотография:</label>
@@ -111,16 +112,16 @@
             <h2><strong>Написать свой отзыв</strong></h2>
         </div>
     </div>
-    <!--<div class="row justify-content-evenly">
-        <a href="#" class="col-auto nav-link">
+    <div class="row justify-content-evenly">
+        <a href="feedback?sort=new" class="col-auto nav-link" id="s_new">
             <i class="fa fa-sort-amount-asc" aria-hidden="true"></i>
             Сортировать по новым
         </a>
-        <a href="#" class="col-auto nav-link">
+        <a href="feedback?sort=old"" class="col-auto nav-link" id="s_old">
             <i class="fa fa-sort-numeric-asc" aria-hidden="true"></i>
-            Сортировать по группам
+            Сортировать по старым
         </a>
-    </div>-->
+    </div>
 
     <div class="">
         <div class="row justify-content-center" id="placeholder">
@@ -128,10 +129,10 @@
                 <span class="visually-hidden">Загрузка...</span>
               </div>
         </div>
-        <div class="row justify-content-center">
-            <div class="fs-2 col-6 d-flex justify-content-evenly" id="pages">
-            </div>
-        </div>
+        <nav class="d-flex justify-content-center">
+            <ul class="pagination" id="pages">
+            </ul>
+        </nav>
     </div>
 </div>
 <footer class="asu-footer d-flex flex-column flex-md-row justify-content-center justify-content-md-evenly align-items-baseline align-items-md-center pt-0 pt-md-4 pb-0 pb-md-4">

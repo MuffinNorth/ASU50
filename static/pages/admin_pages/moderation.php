@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/CSS/bootstrap.css" type="text/css">
     <link rel="stylesheet" href="/CSS/header-and-footer.css" type="text/css">
+    <link rel="stylesheet" href="/CSS/toast.css" type="text/css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     <script type="text/javascript">
@@ -37,9 +38,8 @@
               Настройки
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Модераторы</a></li>
-              <li><a class="dropdown-item" href="#">Параметры сервера</a></li>
-              <li><a class="dropdown-item" href="#">Логи</a></li>
+              <li><a class="dropdown-item" href="/admin/settings">Параметры сервера</a></li>
+              <li><a class="dropdown-item" href="#" onclick="opeModer()">Логи</a></li>
             </ul>
           </li>
         </ul>
@@ -102,12 +102,12 @@
         </div>
     </div>
   </div>
-
   <div id="feedholder" class="d-flex justify-content-center flex-column align-items-center">
 
   </div>
 <script src="/JS/jquery.js"></script>
 <script src="/JS/bootstrap.bundle.js"></script>
+<script src="/JS/toast.js"></script>
 <script src="/JS/moderation.js"></script>
 </body>
 </html>
