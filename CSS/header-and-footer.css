@@ -1,6 +1,7 @@
 *{
     font-family: 'Montserrat', sans-serif;
 }
+a { text-decoration: none; }
 .asu-header{
     width: 100%;
     height: 300px;
@@ -60,4 +61,7 @@
 .asu-avatar{
     width: 128px;
     border-radius: 5px;
+}
+.hover{
+    color: #0CADC2 !important;
 }

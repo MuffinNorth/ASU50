@@ -19,8 +19,31 @@ const cardOnScreen = 5
 let feedbackList = [];
 let nowPage = 1;
 
-$(document).ready(()=>{
-    $.get('/api/getFeedbacks', null, (e)=>{
+const getGet = (name)=>{
+    var s = window.location.search;
+    s = s.match(new RegExp(name + '=([^&=]+)'));
+    return s ? s[1] : false;
+}
+
+const pageReload = ()=>{
+    generateGroup()
+    let data;
+    if(getGet('sort') === false){
+        data = {
+            sort: "new"
+        }
+    }else{
+        data = {
+            sort: getGet('sort')
+        }
+    }
+    console.log(data);
+    if(data.sort == "new"){
+        $("#s_new").addClass("hover");
+    }else if(data.sort == "old"){
+        $("#s_old").addClass("hover");
+    }
+    $.get('/api/getFeedbacks', data, (e)=>{
         const array = JSON.parse(JSON.stringify(e))
         feedbackList = array
         render(nowPage);
@@ -35,7 +58,7 @@ $(document).ready(()=>{
             }
         }
     })
-})
+}
 
 const render = (pageNum) => {
     $("#placeholder").empty()
@@ -83,7 +106,50 @@ function strip(html)
     return tmp.textContent||tmp.innerText;
 }
 
+function ValidMail(mail) {
+    let re = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i;
+    return re.test(mail);
+}
+
+function isEmpty(str) {
+    return (!str || 0 === str.length);
+}
+
 const addFeedback = () => {
+    let isGood = true;
+    if (isEmpty($("#name").val()))
+    {
+        $("#name").addClass("is-invalid");
+        isGood = false;
+    }
+    else {
+        $("#name").removeClass("is-invalid");
+        $("#name").addClass("is-valid");
+    }
+    if (isEmpty($("#email").val()))
+    {
+        $("#email").addClass("is-invalid");
+        isGood = false;
+    }else {
+        if(ValidMail($("#email").val())){
+            $("#email").removeClass("is-invalid");
+            $("#email").addClass("is-valid");
+        }else {
+            $("#email").addClass("is-invalid");
+            isGood = false;
+        }
+    }
+    if (isEmpty($("#city").val()))
+    {
+        $("#city").addClass("is-invalid");
+        isGood = false;
+    }else {
+        $("#city").removeClass("is-invalid");
+        $("#city").addClass("is-valid");
+    }
+    if (!isGood){
+        return
+    }
     const data = new FormData(document.getElementById('feedForm'))
     data.set("review", strip(data.get('review')));
     $.ajax({
@@ -105,7 +171,24 @@ const addFeedback = () => {
     })
 }
 
+const generateGroup = ()=>{
+    let now = new Date();
+    let groupArray = [];
+    for (let i = 1970; i < now.getFullYear()-3 ; i++) {
+        let year = String(i).substring(2,4);
+        if(i >= 2011){
+            groupArray.push("АСУб-" + year);
+        }else {
+            groupArray.push("АСУ-" + year);
+        }
+    }
+    let example = "<option>{g}</option>";
+    for (const nowKey in groupArray) {
+        $("#group").append(example.replace("{g}", groupArray[nowKey]));
+    }
+}
 
+pageReload();
 
 
 
