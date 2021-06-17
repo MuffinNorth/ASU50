@@ -300,10 +300,7 @@ const editFeed = (id)=>{
     
 }
 
-const moderModal = new bootstrap.Modal(document.getElementById('moderModal'))
-const opeModer = ()=>{    
-    moderModal.show();
-}
+
 
 
 const updateFeedback = () =>{
@@ -349,7 +346,7 @@ const updateFeedback = () =>{
     }
 
     if(isGood){
-        $.get('/admin/edit', data, (e)=>{
+        $.post('/admin/edit', data, (e)=>{
             myModal.hide();
             changeTypeOfFeedbacks(typeOfFeedbacks);
             log("Отзыв был отредактирован", '#ffa500')
@@ -357,7 +354,10 @@ const updateFeedback = () =>{
     }
 }
 
-
+const moderModal = new bootstrap.Modal(document.getElementById('moderModal'))
+const opeModer = ()=>{    
+    moderModal.show();
+}
 
 
 

@@ -40,12 +40,15 @@ $(document).ready(()=>{
 const render = (pageNum) => {
     $("#placeholder").empty()
     for(let i = (pageNum-1)*cardOnScreen+1; i <= (pageNum-1)*cardOnScreen + cardOnScreen; i++){
-            const card = exampleCard.replace('{name}', feedbackList[i]['name'])
+            if(feedbackList[i] != null){
+                const card = exampleCard.replace('{name}', feedbackList[i]['name'])
                 .replace('{city}', feedbackList[i]['city'])
                 .replace('{group}', feedbackList[i]['group'])
                 .replace('{review}', feedbackList[i]['review'])
                 .replace('{avatar}', feedbackList[i]['avatar_path'])
             $('#placeholder').append(card);
+            }
+            
     }
 }
 
@@ -62,6 +65,8 @@ const update = (num) =>{
             }
         }
     render(nowPage);
+    const el = document.getElementById('scrollUp');
+    el.scrollIntoView();
     
 }
 
