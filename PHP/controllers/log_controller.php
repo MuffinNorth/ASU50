@@ -5,7 +5,7 @@ function write_log($username, $what){
     global $mysqli;
     $id = getID($username);
     $date = "2021-05-18 04:15:11";
-    $sql = "INSERT INTO `admin_log` (`who`, `when`, `what`) VALUES ('$id', NOW(), '$what')";
+    $sql = "INSERT INTO `logs` (`who`, `when`, `what`) VALUES ('$id', NOW(), '$what')";
     $mysqli->query($sql);
 }
 
