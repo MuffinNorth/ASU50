@@ -1,7 +1,7 @@
 <?php
     switch ($URI[0]){
         case "":
-            include "./static/pages/index.html";
+            include "./static/pages/index.php";
             break;
         case "history":
             include "./static/pages/history.html";

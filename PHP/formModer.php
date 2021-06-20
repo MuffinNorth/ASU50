@@ -11,11 +11,11 @@ function genLogs($who, $when, $what){
     $count++;
 }
 require_once "./PHP/controllers/log_controller.php";
-$sql = "SELECT admins.login, admin_log.when, admin_log.what FROM `admin_log`, `admins` WHERE admins.id = admin_log.who ORDER BY `admin_log`.`when` DESC";
+$sql = "SELECT admins.login, logs.when, logs.what FROM `logs`, `admins` WHERE admins.id = logs.who ORDER BY `logs`.`when` DESC";
 $result = $mysqli->query($sql);
 ?>
 <button class="btn btn-danger">Очистить логи</button>
-<table class="table table-striped table-bordered table-hover table-responsive" style="">
+<table class="table table-striped table-bordered table-hover table-responsive">
   <thead>
     <tr>
       <th scope="col">#</th>
