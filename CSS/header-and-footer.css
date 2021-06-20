@@ -1,6 +1,9 @@
 *{
     font-family: 'Montserrat', sans-serif;
 }
+body {
+    overflow-x: hidden;
+}
 a { text-decoration: none; }
 .asu-header{
     width: 100%;
@@ -74,9 +77,9 @@ a { text-decoration: none; }
 .text-indent{
     text-indent: 40px
 }
-@media (min-width: 576px) {
+@media (min-width: 100px) {
     .giantText{
-        font-weight: 700; font-size: 72px;
+        font-weight: 700; font-size: 120px;
     }
 }
 @media (min-width: 768px) {
@@ -98,4 +101,7 @@ a { text-decoration: none; }
 
 .hover{
     color: #0CADC2 !important;
+}
+.btn-hide:focus {
+    outline: none !important;
 }

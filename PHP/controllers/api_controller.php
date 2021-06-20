@@ -10,6 +10,8 @@ if(isset($URI[1])){
         include "./PHP/adminGetFeedbacks.php";
     }elseif($URI[1] == "aGetFeedbackById"){
         include_once "./PHP/getFeedbacById.php";
+    }elseif($URI[1] == "getCity"){
+        include_once "./PHP/getCity.php";
     }
     else{
         echo "404";

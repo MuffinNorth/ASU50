@@ -1,3 +1,37 @@
+<?php
+$first = true;
+function genStarFeedback($data){
+    global $first;
+    $name = $data['name'];
+    $group = $data['group'];
+    $review = $data['review'];
+    $avatar = $data['avatar_path'];
+    $city = $data['city'];
+    if($first){
+        echo "<div class=\"carousel-item active\">";
+    }else{
+        echo "<div class=\"carousel-item\">";
+    }
+    $first = false;
+    echo "<div class=\"asu-feedback-card d-flex flex-column flex-md-row\">
+        <div class=\"m-3 mt-4\">
+            <img class=\"asu-avatar\" src=\"/static/imgs/avatars/$avatar\">
+        </div>
+        <div class=\"container-fluid\">
+            <div class=\"mt-3\">
+                <strong>$name, $city</strong><br>
+                <strong>Группа: </strong> $group
+            </div>
+            <hr>
+            <div>
+                <p>$review</p>
+                </div>
+        </div>
+    </div>
+  </div>";
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -8,6 +42,7 @@
     <link rel="stylesheet" href="CSS/header-and-footer.css" type="text/css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=fd857437-c7f4-46ba-a7eb-7fd55154a69a" type="text/javascript"></script>
 </head>
 <body>
 <!--Шапка-->
@@ -71,18 +106,8 @@
             в ИПИ (Иркутском политехническом институте)<br>
             новой специальности —  «АСУ».</p></strong>
         </div>
-        <div class="mt-5 fw-bold" style="color: #0CADC2;">
-            <h2><strong>Выпускник специальности АСУ?</strong></h2>
-        </div>
-        <div class="fs-5">
-            <p>Тогда присоединяйся к нашему сообществу!</p>
-        </div>
+        
     </div>    
-    <div class="text-center justify-content-center mt-2">
-        <div>
-            <button type="button" onclick="addFeedback()" class="btn btn-primary button-style">Присоединиться</button>
-        </div>
-    </div>
 </div>
 <div class="container mt-5">
     <div class="text-center">
@@ -117,12 +142,20 @@
 </div>
 
 
-<div class="container">
-    <div class="row text-center justify-content-center">
-        <div style="margin-top: 82px; font-weight: 700; font-size: 48px; line-height: 59px;">
-            <p>ТУТ КАРТА</p>
+<div id="map" style="height: 500px;">
+</div>
+<div class="container text-center">
+    <div class="mt-5 fw-bold" style="color: #0CADC2;">
+        <h2><strong>Выпускник специальности АСУ?</strong></h2>
+    </div>
+    <div class="fs-5">
+        <p>Тогда отметься на карте!</p>
+    </div>
+    <div class="text-center justify-content-center mt-2">
+        <div>
+            <button type="button" onclick="addFeedback()" class="btn btn-primary button-style">Отметиться</button>
         </div>
-    </div>    
+    </div>
 </div>
 
 
@@ -134,14 +167,37 @@
     </div>    
 </div>
 
-
-<div class="container">
-    <div class="row text-center justify-content-center">
-        <div style="margin-top: 82px; font-weight: 700; font-size: 48px; line-height: 59px;">
-            <p>ТУТ БЛОК С ОТЗЫВАМИ</p>
+<?php
+require_once "./PHP/dbconnetion.php";
+$sql = "SELECT * FROM `feedbacks` WHERE favorites = 1";
+$res = $mysqli->query($sql);
+if($res->num_rows > 0){
+?>
+<div class="row d-flex justify-content-center">
+    <div id="carouselExampleControls" class="carousel slide col-12 col-md-8 order-1 order-md-2" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <?php
+            for($i = 0; $i < $res->num_rows; $i++){
+                $data = $res->fetch_assoc();
+                genStarFeedback($data);
+            }
+            ?>
         </div>
-    </div>    
+    </div>  
+    
+    <button class="carousel-dark btn btn-hide col-6 col-md-1 order-md-1 order-2" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Предыдущий</span>
+    
+    </button>
+      <button class="carousel-dark btn btn-hide col-6 col-md-1 order-3" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Предыдущий</span>
+      </button>
 </div>
+<?php
+}
+?>
 
 
 <div class="container mt-5">
@@ -182,6 +238,8 @@
         <div class="itiad mx-2"></div>
     </div>
 </footer>
-<script src="JS/bootstrap.bundle.js"></script>
+<script src="/JS/bootstrap.bundle.js"></script>
+<script src="/JS/jquery.js"></script>
+<script src="/JS/asu-map.js"></script>
 </body>
 </html>
