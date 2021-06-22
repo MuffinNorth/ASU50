@@ -86,6 +86,61 @@ function genStarFeedback($data){
         </div>
     </div>
 </header>
+
+<div class="modal fade " id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+        <div class="modal-content">
+            <div class="modal-header asu-footer">
+                <h5 class="modal-title" id="exampleModalLabel">Написать свой отзыв</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="feedForm" class="" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="name">Имя и фамилия*:</label>
+                            <input class="form-control m-2" type="text" id="name" placeholder="Ваше имя и фамилия" name="name">
+                        </div>
+                        <div class="col-6">
+                            <label for="email">Электронная почта*:</label>
+                            <input class="form-control m-2" type="email" id="email" placeholder="Ваш email" name="email">  
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="name">Город*:</label>
+                            <input class="form-control m-2" type="text" id="city" placeholder="Город" name="city">
+                        </div>
+                        <div class="col-6">
+                            <label for="email">Место работы:</label>
+                            <input class="form-control m-2" type="email" placeholder="Место работы" name="workplace">  
+                        </div>
+                    </div>
+                    <div class="row flex-row justify-content-between">
+                        <div class="col-5 mt-2 ms-2">
+                            <label for="name">Группа*:</label>
+                            <select id="group" class="form-control" name="group">
+                            </select>
+                        </div>
+                        <div class="col-6">
+                            <label for="email">Фотография:</label>
+                            <input class="form-control m-2" type="file"  name="avatar">
+                        </div>
+                    </div>
+                    <input type="hidden" name="from" value="2" id="fromValue">
+                    <div>
+                        <label id="prompt" for="email">Отзыв:</label>
+                        <textarea class="form-control" name="review" rows="15"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" onclick="addFeedback()" class="btn btn-primary">Отправить отзыв</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--контент-->
 <div class="container">
     <div class="mt-5 row text-center gradient">
@@ -126,9 +181,7 @@ function genStarFeedback($data){
 
 <div class="container">
     <div class="row text-center justify-content-center">
-        <div style="margin-top: 75px; font-weight: 700; font-size: 36px; line-height: 44px;">
-            <p>Здесь будет видео!</p>
-        </div>
+        <video src="/static/video/Asu_71_Ucheba_a.mp4" controls></video> 
     </div>    
 </div>
 
@@ -142,7 +195,7 @@ function genStarFeedback($data){
 </div>
 
 
-<div id="map" style="height: 500px;">
+<div id="map" class="container-sm" style="height: 500px;">
 </div>
 <div class="container text-center">
     <div class="mt-5 fw-bold" style="color: #0CADC2;">
@@ -153,7 +206,7 @@ function genStarFeedback($data){
     </div>
     <div class="text-center justify-content-center mt-2">
         <div>
-            <button type="button" onclick="addFeedback()" class="btn btn-primary button-style">Отметиться</button>
+            <button type="button" onclick="openModal(1)" class="btn btn-primary button-style">Отметиться</button>
         </div>
     </div>
 </div>
@@ -210,7 +263,7 @@ if($res->num_rows > 0){
     </div>    
     <div class="text-center m-5 justify-content-center">
         <div>
-            <button type="button" onclick="addFeedback()" class="btn btn-primary button-style">Оставить отзыв</button>
+            <button type="button" onclick="openModal(2)" class="btn btn-primary button-style">Оставить отзыв</button>
         </div>
     </div>
 </div>
@@ -241,5 +294,6 @@ if($res->num_rows > 0){
 <script src="/JS/bootstrap.bundle.js"></script>
 <script src="/JS/jquery.js"></script>
 <script src="/JS/asu-map.js"></script>
+<script src="/JS/feedback-add.js"></script>
 </body>
 </html>
