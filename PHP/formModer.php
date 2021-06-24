@@ -14,7 +14,7 @@ require_once "./PHP/controllers/log_controller.php";
 $sql = "SELECT admins.login, logs.when, logs.what FROM `logs`, `admins` WHERE admins.id = logs.who ORDER BY `logs`.`when` DESC";
 $result = $mysqli->query($sql);
 ?>
-<button class="btn btn-danger">Очистить логи</button>
+<button class="btn btn-danger my-2" onclick="clearLogs()">Очистить логи</button>
 <table class="table table-striped table-bordered table-hover table-responsive">
   <thead>
     <tr>
@@ -33,3 +33,4 @@ $result = $mysqli->query($sql);
     ?>
   </tbody>
 </table>
+<script src="/JS/log.js"></script>

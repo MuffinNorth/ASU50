@@ -49,7 +49,8 @@ const addFeedback = () => {
         processData: false,
         dataType: 'json',
         complete: (e) => {
-            console.log(e)
+            closeModal();
+            showAlert();
         }
     })
 }
@@ -70,6 +71,17 @@ const generateGroup = ()=>{
         $("#group").append(example.replace("{g}", groupArray[nowKey]));
     }
 }
+
+
+const alertModal = new bootstrap.Modal(document.getElementById('alertModal'))
+const showAlert = () => {
+    alertModal.show()
+}
+const closeAlert = () =>{
+    alertModal.hide();
+}
+
+
 const myModal = new bootstrap.Modal(document.getElementById('feedbackModal'))
 const openModal = (from) => {
     $("#fromValue").val(from)
@@ -79,6 +91,9 @@ const openModal = (from) => {
         $("#prompt").text("Отзыв:")
     }
     myModal.show()
+}
+const closeModal = () =>{
+    myModal.hide()
 }
 function ValidMail(mail) {
     let re = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i;

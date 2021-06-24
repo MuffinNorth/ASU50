@@ -33,15 +33,7 @@
           <li class="nav-item">
             <a id='can' class="nav-link" aria-current="page" href="#Корзина" onclick="changeTypeOfFeedbacks(2)">Корзина</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Настройки
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="/admin/settings">Параметры сервера</a></li>
-              <li><a class="dropdown-item" href="#" onclick="opeModer()">Логи</a></li>
-            </ul>
-          </li>
+          <li><a class="nav-link" href="/admin/settings">Параметры сервера</a></li>
         </ul>
         <form class="" action="/admin/logout">
           <button class="btn btn-outline-danger me-2" type="submit">Выход</button>

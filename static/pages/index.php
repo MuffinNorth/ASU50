@@ -141,6 +141,25 @@ function genStarFeedback($data){
     </div>
 </div>
 
+<div class="modal fade" id="alertModal" aria-hidden="true" aria-labelledby="alertModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content asu-feedback-modal">
+            <div class="modal-body">
+                <div class="row text-center">
+                    <h2 class="mb-4 asu-megatitle"><strong>Спасибо!</strong></h2>
+                    <p>
+                        Спасибо! Ваш отзыв отправлен на модерацию. Если всё в порядке, после проверки он появится на странице отзывов.
+                    </p>
+                </div>
+                <br>
+                <div class="row justify-content-center">
+                    <button class="btn btn-outline-info col-5" onclick="closeAlert()">Отлично!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!--контент-->
 <div class="container">
     <div class="mt-5 row text-center gradient">

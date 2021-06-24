@@ -129,7 +129,7 @@ const getFeeds = () =>{
             addFeedbacks(val);
         }
         if(e.size == 0){
-            $("#feedholder").append("Пока отзывов нет!")
+            $("#feedholder").append("<h2 class=\"mt-2\">Пока отзывов нет!</h2>")
         }
         
     })
@@ -233,7 +233,7 @@ const deny = (id) => {
 }
 
 const del = (id) => {
-    const res = confirm("Вы уверенны?")
+    const res = confirm("Вы уверены?")
     if(res){
         const data = {
             username: username,

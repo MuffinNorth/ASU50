@@ -6,7 +6,7 @@ function genModer($id, $who, $email){
     echo "<th scope=\"row\">$count</th>";
     echo "<td>$who</td>";
     echo "<td>$email</td>";
-    echo "<td>
+    echo "<td  class=\"al-right\">
     <a class=\"btn btn-warning\" href=\"/admin/settings?edit=$id\">
     Редактировать
     </a>
@@ -153,7 +153,7 @@ $result = $mysqli->query($sql);
             <th scope="col">#</th>
             <th scope="col">Логин</th>
             <th scope="col">Почта</th>
-            <th scope="col">Функции</th>
+            <th scope="col"  class="al-right">Функции</th>
             </tr>
         </thead>
         <tbody>

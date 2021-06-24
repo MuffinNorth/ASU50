@@ -93,10 +93,20 @@ const update = (num) =>{
     
 }
 
+const alertModal = new bootstrap.Modal(document.getElementById('alertModal'))
+const showAlert = () => {
+    alertModal.show()
+}
+const closeAlert = () =>{
+    alertModal.hide();
+}
 
 const myModal = new bootstrap.Modal(document.getElementById('feedbackModal'))
 const openModal = () => {
     myModal.show()
+}
+const closeModal = () =>{
+    myModal.hide()
 }
 
 function strip(html)
@@ -153,20 +163,16 @@ const addFeedback = () => {
     const data = new FormData(document.getElementById('feedForm'))
     data.set("review", strip(data.get('review')));
     $.ajax({
-        // Your server script to process the upload
         url: '/api/addFeedback',
         type: 'POST',
-
-        // Form data
         data: data,
-        // Tell jQuery not to process data or worry about content-type
-        // You *must* include these options!
         cache: false,
         contentType: false,
         processData: false,
         dataType: 'json',
         complete: (e) => {
-            console.log(e)
+            closeModal();
+            showAlert();
         }
     })
 }
