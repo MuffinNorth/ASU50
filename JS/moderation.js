@@ -129,7 +129,7 @@ const getFeeds = () =>{
             addFeedbacks(val);
         }
         if(e.size == 0){
-            $("#feedholder").append("Пока отзывов нет!")
+            $("#feedholder").append("<h2 class=\"mt-2\">Пока отзывов нет!</h2>")
         }
         
     })
@@ -165,8 +165,12 @@ const addFeedbacks = (data) => {
         .replace('{star}', btn)
         if(data.from == 0){
             card = card.replace('{from}', "формы \"добавить отзыв\" ")
-        }else{
+        }else if(data.from == 1){
+            card = card.replace('{from}', "формы \"отметиться\"")    
+        }else if(data.from == 2){
             card = card.replace('{from}', "формы на главной")    
+        }else if(data.from == 3){
+            card = card.replace('{from}', "формы на странице очерков")    
         }
         card = card.replace('{id}', data.id)
         .replace('{id}', data.id);
@@ -229,7 +233,7 @@ const deny = (id) => {
 }
 
 const del = (id) => {
-    const res = confirm("Вы уверенны?")
+    const res = confirm("Вы уверены?")
     if(res){
         const data = {
             username: username,
