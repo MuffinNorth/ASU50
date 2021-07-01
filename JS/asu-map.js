@@ -11,6 +11,7 @@ function init () {
     }, {
         searchControlProvider: 'yandex#search'
     });
+    myMap.behaviors.disable('scrollZoom');
 
     $.get("/api/getCity", null, function (req) {
         for (let i = 1; i < req.size + 1; i++) {

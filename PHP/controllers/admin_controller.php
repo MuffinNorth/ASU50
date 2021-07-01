@@ -54,6 +54,12 @@ if(isset($URI[1])){
     if($URI[1] == "settings"){
         include_once "./static/pages/admin_pages/settings.php";
     }
+    if($URI[1] == "mailing"){
+        include_once "./static/pages/admin_pages/mailing.php";
+    }
+    if($URI[1] == "changeProperty"){
+        include_once "./PHP/changeProperty.php";
+    }
     if($URI[1] == "moderationEdit"){
         include_once "./PHP/moderationEdit.php";
     }

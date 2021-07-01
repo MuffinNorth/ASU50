@@ -13,7 +13,7 @@
     var username ='<?php echo $_SESSION['logindata']['username'];?>';
     var token ='<?php echo $_SESSION['logindata']['token'];?>';
     </script>
-    <title>Панель модератора</title>
+    <title>Панель рассылки</title>
 </head>
 <body>
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark sticky-top">
@@ -28,9 +28,9 @@
             <a class="nav-link" aria-current="page" href="/admin">Отзывы</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="/admin/settings">Параметры сервера</a>
+            <a class="nav-link " href="/admin/settings">Параметры сервера</a>
           </li>
-          <li><a class="nav-link" href="/admin/mailing">Рассылка</a></li>
+          <li><a class="nav-link active" href="/admin/mailing">Рассылка</a></li>
         </ul>
         <form class="" action="/admin/logout">
           <button class="btn btn-outline-danger me-2" type="submit">Выход</button>
@@ -41,26 +41,18 @@
   <div>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
       <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Модераторы</button>
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Рассылка на email выпускников</button>
       </li>
       <li class="nav-item" role="presentation">
-        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Настройки сайта</button>
-      </li>
-      <li class="nav-item" role="presentation">
-        <button class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact" type="button" role="tab" aria-controls="contact" aria-selected="false">Логи</button>
+        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Настройки автоответчика</button>
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-         <?php include "./PHP/editModer.php" ?>
+         <?php include "./PHP/massmailing.php" ?>
       </div>
       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
         <?php include "./PHP/serverSettings.php" ?>
-      </div>
-      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-        <div class="container my-2">
-         <?php include "./PHP/formModer.php" ?>
-        </div>
       </div>
     </div>
 
@@ -69,7 +61,6 @@
 <script src="/JS/jquery.js"></script>
 <script src="/JS/bootstrap.js"></script>
 <script src="/JS/toast.js"></script>
-<script src="/JS/settings.js"></script>
-
+<script src="/JS/textformarter.js"></script>
 </body>
 </html>

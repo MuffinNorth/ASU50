@@ -106,47 +106,33 @@ a { text-decoration: none; }
     outline: none !important;
 }
 
-.addButton{
-    color: #0CADC2; 
-    bottom: 30px;
-    right: 30px;
-    position: fixed;
-    cursor: pointer;
-}
-.addButton:active{
-    color: #082AA0; 
-}
 
-.addButton:hover {
-    -webkit-animation: 1.2s ease-in-out 0s normal none infinite running trambling-animation;
-    -moz-animation: 1.2s ease-in-out 0s normal none infinite running trambling-animation;
-    -o-animation: 1.2s ease-in-out 0s normal none infinite running trambling-animation;
-    animation: 1.2s ease-in-out 0s normal none infinite running trambling-animation;
-}
 
-@keyframes trambling-animation {
-    0%, 50%, 100% {
-      transform: rotate(0deg);
-      -webkit-transform: rotate(0deg);
-      -moz-transform: rotate(0deg);
-      -o-transform: rotate(0deg);
-      -ms-transform: rotate(0deg);
-    }
-    10%, 30% {
-      transform: rotate(-10deg);
-      -webkit-transform: rotate(-10deg);
-      -moz-transform: rotate(-10deg);
-      -o-transform: rotate(-10deg);
-      -ms-transform: rotate(-10deg);
-    }
-    20%, 40% {
-      transform: rotate(10deg);
-      -webkit-transform: rotate(10deg);
-      -moz-transform: rotate(10deg);
-      -o-transform: rotate(10deg);
-      -ms-transform: rotate(10deg);
-    }
- }
  .al-right{
     text-align: right
  }
+#map {
+    -ms-touch-action: auto !important;
+    touch-action: auto !important;
+} 
+#fixedButton {
+	display: none;
+	width: 65px;
+	height: 65px;
+	position: fixed;
+	bottom: 30px;
+	right: 20px;
+	background-color: rgba(1,110,193, .7);
+	border-radius: 50%;
+	cursor: pointer;
+	z-index: 10;
+	transition: 0.2s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+    font-size: 48pt;
+    color: white;
+}
+#fixedButton:hover{
+	background-color: rgba(75,115,170, 1);
+}

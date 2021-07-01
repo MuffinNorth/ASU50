@@ -1,6 +1,7 @@
 /* TIMELINE
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+
 .timeline ul {
     padding: 50px 0;
   }
@@ -11,7 +12,7 @@
     width: 6px;
     margin: 0 auto;
     padding-top: 50px;
-    background: linear-gradient(180deg, rgba(196, 196, 196, 0) 0%, #C4C4C4 3.65%);
+    background: linear-gradient(95.63deg, #082AA0 -11.75%, #0CADC2 136.21%);
   }
   
   .timeline ul li::after {
@@ -67,8 +68,12 @@
   
   time {
     display: block;
-    font-size: 1.2rem;
+    font-size: 2.2rem;
     font-weight: bold;
+    background: linear-gradient(87.64deg, #0CADC2 0.84%, #082AA0 116.97%);
+    background-clip: border-box;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
     margin-bottom: 8px;
   }
   
@@ -81,7 +86,7 @@
   }
   
   .timeline ul li.in-view::after {
-    background: linear-gradient(177.77deg, #D6E7FF 1.87%, #E1FAFF 98.19%);
+    background: linear-gradient(95.63deg, #082AA0 -11.75%, #0CADC2 136.21%);
   }
   
   .timeline ul li div {
@@ -133,7 +138,7 @@
     .timeline ul li:nth-child(even) div::before {
       left: -15px;
       border-width: 8px 16px 8px 0;
-      border-color: transparent #B1F1FF transparent transparent;
+      border-color: transparent transparent transparent transparent;
     }
   }
   

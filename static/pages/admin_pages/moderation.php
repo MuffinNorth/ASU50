@@ -34,6 +34,7 @@
             <a id='can' class="nav-link" aria-current="page" href="#Корзина" onclick="changeTypeOfFeedbacks(2)">Корзина</a>
           </li>
           <li><a class="nav-link" href="/admin/settings">Параметры сервера</a></li>
+          <li><a class="nav-link" href="/admin/mailing">Рассылка</a></li>
         </ul>
         <form class="" action="/admin/logout">
           <button class="btn btn-outline-danger me-2" type="submit">Выход</button>
