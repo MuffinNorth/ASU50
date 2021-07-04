@@ -32,8 +32,12 @@ header("Content-Type: application/json");
             $avatar = 'default.svg';
         }
         $from = $_POST["from"];
-        $sql = "INSERT INTO `feedbacks` (`id`, `name`, `group`, `review`, `city`, `workplace`, `email`, `avatar_path`, `from`, `moderation_type`, `favorites`) VALUES (NULL, '$name', '$group', '$review', '$city', '$workplace', '$email', '$avatar', '$from', '0', b'0')";
+        $sql = "SELECT value FROM `settings` WHERE property='openToFeeds'";
         $res = $mysqli->query($sql);
+        if($res->fetch_assoc()['value'] == "true"){
+            $sql = "INSERT INTO `feedbacks` (`id`, `name`, `group`, `review`, `city`, `workplace`, `email`, `avatar_path`, `from`, `moderation_type`, `favorites`) VALUES (NULL, '$name', '$group', '$review', '$city', '$workplace', '$email', '$avatar', '$from', '0', b'0')";
+            $res = $mysqli->query($sql);
+        }
         echo json_encode($res);
     }
     else{

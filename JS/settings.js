@@ -9,3 +9,15 @@ const onSwitch = () =>{
         log("Настройки были обновлены", '#3caa3c')
     })
 }
+
+const changeMail = () => {
+    const data = {
+        username: username,
+        token: token,
+        property: 'adminMail',
+        value: $("#adminEmail").val()
+    }
+    $.post('/admin/changeProperty', data, (e)=>{
+        log("Email был изменен!", '#3caa3c')
+    })
+}

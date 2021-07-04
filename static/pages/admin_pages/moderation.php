@@ -33,6 +33,7 @@
           <li class="nav-item">
             <a id='can' class="nav-link" aria-current="page" href="#Корзина" onclick="changeTypeOfFeedbacks(2)">Корзина</a>
           </li>
+          <li class="nav-link">|</li>
           <li><a class="nav-link" href="/admin/settings">Параметры сервера</a></li>
           <li><a class="nav-link" href="/admin/mailing">Рассылка</a></li>
         </ul>

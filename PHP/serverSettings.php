@@ -27,12 +27,8 @@ $openToFeeds = $result->fetch_assoc()['value'];
             echo $adminMail;
             ?>">
             <span class="mx-1 input-group-btn">
-             <button class="btn btn-outline-secondary" type="button">Изменить</button>
+             <button class="btn btn-outline-secondary" type="button" onclick="changeMail()">Изменить</button>
             </span>
-            <span class="input-group-btn">
-             <button class="btn btn-outline-secondary" type="button">Сбросить</button>
-            </span>
-
         </div>
     </div>
     </div>

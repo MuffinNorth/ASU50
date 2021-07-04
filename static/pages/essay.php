@@ -1,3 +1,13 @@
+<?php
+require_once "./PHP/controllers/log_controller.php";
+$sql = "SELECT * FROM `settings` WHERE `property`='adminMail'";
+$result = $mysqli->query($sql);
+$adminMail = $result->fetch_assoc()['value'];
+$sql = "SELECT * FROM `settings` WHERE `property`='openToFeeds'";
+$result = $mysqli->query($sql);
+$openToFeeds = $result->fetch_assoc()['value'];
+?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -52,7 +62,11 @@
     </div>
 </header>
 
-<div class="modal fade " id="feedbackModal" tabindex="-1" aria-labelledby="feedbackModal" aria-hidden="true">
+<div class="modal fade " <?php
+if($openToFeeds == "true"){
+    echo 'id="feedbackModal"';
+}
+?> tabindex="-1" aria-labelledby="feedbackModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">
             <div class="modal-header asu-footer">
@@ -105,6 +119,34 @@
         </div>
     </div>
 </div>
+
+<div class="modal fade" <?php
+if($openToFeeds == "false"){
+    echo 'id="feedbackModal"';
+}
+?> aria-hidden="true" aria-labelledby="alertModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content asu-feedback-modal">
+            <div class="modal-body">
+                <div class="row text-center">
+                    <h2 class="mb-4 asu-megatitle"><strong>Извините! </strong></h2>
+                    <p>
+                        Прием отзывов в данный момент закрыт! В случае необходимости просим вас обратиться к администратору: <a href="mailto:<?php
+                        echo $adminMail;
+                        ?>"><?php
+                        echo $adminMail;
+                        ?></a>
+                    </p>
+                </div>
+                <br>
+                <div class="row justify-content-center">
+                    <button class="btn btn-outline-info col-5 " data-bs-dismiss="modal">Хорошо</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="modal fade" id="alertModal" aria-hidden="true" aria-labelledby="alertModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
@@ -352,6 +394,6 @@
 </footer>
 <script src="/JS/bootstrap.bundle.js"></script>
 <script src="/JS/jquery.js"></script>
-<script src="/js/feedback-add.js"></script>
+<script src="/JS/feedback-add.js"></script>
 </body>
 </html>
