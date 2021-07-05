@@ -37,7 +37,6 @@ const pageReload = ()=>{
             sort: getGet('sort')
         }
     }
-    console.log(data);
     if(data.sort == "new"){
         $("#s_new").addClass("hover");
     }else if(data.sort == "old"){

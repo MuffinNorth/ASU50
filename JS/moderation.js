@@ -117,7 +117,6 @@ const getFeeds = () =>{
         const array = JSON.parse(JSON.stringify(e))
         let end = [];
         for(let i = 1; i <= e.size; i++){
-            console.log(array[i]);
             if(array[i].review == ""){
                 end.push(array[i]);
             }else{
@@ -259,7 +258,6 @@ const toStar = (id) => {
             type: "add"
         }
         $.get('/admin/star', data, (e)=>{
-            console.log(e);
             log("Отзыв был отмечен как избранный", '#f3da0b')
         })
     }else{
@@ -273,7 +271,6 @@ const toStar = (id) => {
             type: "remove"
         }
         $.get('/admin/star', data, (e)=>{
-            console.log(e);
             log("Отзыв был убран из избранного", '#f3da0b')
         })
     }
