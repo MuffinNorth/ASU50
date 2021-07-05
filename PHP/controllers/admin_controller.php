@@ -63,6 +63,9 @@ if(isset($URI[1])){
     if($URI[1] == "moderationEdit"){
         include_once "./PHP/moderationEdit.php";
     }
+    if($URI[1] == "massSendMail"){
+        include_once "./PHP/massSendMail.php";
+    }
     if($URI[1] == "clearLogs"){
         include_once "./PHP/clearLog.php";
     }

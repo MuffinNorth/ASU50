@@ -282,7 +282,7 @@ if($openToFeeds == "false"){
 
 <?php
 require_once "./PHP/dbconnetion.php";
-$sql = "SELECT * FROM `feedbacks` WHERE favorites = 1";
+$sql = "SELECT * FROM `feedbacks` WHERE favorites = 1 and moderation_type = 1";
 $res = $mysqli->query($sql);
 if($res->num_rows > 0){
 ?>
@@ -297,7 +297,9 @@ if($res->num_rows > 0){
             ?>
         </div>
     </div>  
-    
+    <?php
+    if($res->num_rows > 1){
+    ?>
     <button class="carousel-dark btn btn-hide col-6 col-md-1 order-md-1 order-2" type="button" data-bs-target="#carouselExampleControls"  data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Предыдущий</span>
@@ -307,6 +309,9 @@ if($res->num_rows > 0){
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Предыдущий</span>
       </button>
+      <?php
+    }
+      ?>
 </div>
 <?php
 }

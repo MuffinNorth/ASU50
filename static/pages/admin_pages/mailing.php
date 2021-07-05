@@ -52,7 +52,7 @@
          <?php include "./PHP/massmailing.php" ?>
       </div>
       <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-        <?php include "./PHP/serverSettings.php" ?>
+        <?php include "./PHP/mailSettings.php" ?>
       </div>
     </div>
 
@@ -62,5 +62,6 @@
 <script src="/JS/bootstrap.js"></script>
 <script src="/JS/toast.js"></script>
 <script src="/JS/textformarter.js"></script>
+<script src="/JS/settings.js"></script>
 </body>
 </html>

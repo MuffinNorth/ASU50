@@ -21,3 +21,38 @@ const changeMail = () => {
         log("Email был изменен!", '#3caa3c')
     })
 }
+
+const updateShablon = () => {
+    let data = {
+        username: username,
+        token: token,
+        property: 'feedbackMessageTitle',
+        value: $(".in-stitle").val()
+    }
+    $.post('/admin/changeProperty', data)
+    
+    data = {
+        username: username,
+        token: token,
+        property: 'acceptMessage',
+        value: $(".in-atext").val()
+    }
+    $.post('/admin/changeProperty', data)
+
+    data = {
+        username: username,
+        token: token,
+        property: 'denyMessage',
+        value: $(".in-dtext").val()
+    }
+    $.post('/admin/changeProperty', data)
+
+    data = {
+        username: username,
+        token: token,
+        property: 'footerMessage',
+        value: $(".in-ftext").val()
+    }
+    $.post('/admin/changeProperty', data)
+    log("Шаблон был обновлен!", '#3caa3c')
+}
