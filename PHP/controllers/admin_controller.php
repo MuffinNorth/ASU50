@@ -25,7 +25,7 @@ if(!isset($_SESSION['logindata'])){
 
 if(isset($URI[1])){
     if($URI[1] == "login" ){
-        include_once "./static/pages/admin_pages/login.html";
+        include_once "./static/pages/admin_pages/login.php";
     }
     elseif($URI[1] == "logout"){
         write_log($_SESSION['logindata']['username'], "Вышел из панели модератора");
@@ -74,7 +74,7 @@ if(isset($URI[1])){
 else
 {
     if(!$_SESSION['logindata']['isLogin']){
-        header('Location: /admin/login');
+        header('Location: /admin/login?error');
     }else{
         include "./static/pages/admin_pages/moderation.php";
     }

@@ -1,3 +1,9 @@
+<?php
+require_once "./PHP/dbconnetion.php";
+$sql = "SELECT * FROM `settings` WHERE `property`='adminMail'";
+$result = $mysqli->query($sql);
+$adminMail = $result->fetch_assoc()['value'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,14 +27,32 @@
           <div class="fadeIn first">
             <img src="" id="icon" alt="" />
           </div>
-      
+          <?php
+          if(isset($_GET['error'])){
+          ?>
+          <div class="alert alert-danger m-2" role="alert">
+                Неверный логин или пароль!
+          </div>
+          <?php
+          }
+          ?>
           <!-- Login Form -->
           <form  method="post" action="/admin">
             <input type="text" id="login" class="fadeIn second" name="login" placeholder="Логин">
             <input type="password" id="password" class="fadeIn third" name="password" placeholder="Пароль">
             <input type="submit" class="fadeIn fourth" value="Войти">
           </form>
+          <?php
+          if(isset($_GET['error'])){
+          ?>
+          <div id="formFooter">
+            <a class="underlineHover" href="mailto: <?=$adminMail?>">Забыли пароль? Свяжитесь с <?php echo $adminMail ?></a>
+          </div>
+          <?php
+          }
+          ?>
         </div>
+        
       </div>
 <script src="JS/jquery.js"></script>
 <script src="JS/bootstrap.bundle.js"></script>
