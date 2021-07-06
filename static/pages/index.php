@@ -282,7 +282,7 @@ if($openToFeeds == "false"){
 
 <?php
 require_once "./PHP/dbconnetion.php";
-$sql = "SELECT * FROM `feedbacks` WHERE favorites = 1 and moderation_type = 1";
+$sql = "SELECT * FROM `feedbacks` WHERE favorites = 1 and moderation_type = 1 and not review = ''";
 $res = $mysqli->query($sql);
 if($res->num_rows > 0){
 ?>

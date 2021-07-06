@@ -2,9 +2,10 @@
 require_once "./PHP/controllers/login_controller.php";
 require_once "./PHP/controllers/log_controller.php";
 session_start();
-
+$token = 0000;
 if(isset($_POST['login']) and isset($_POST['password'])){
     $token = login($_POST['login'], $_POST['password']);
+    
     if($token){
         $_SESSION['logindata'] = [
             'username' => $_POST['login'],
@@ -74,7 +75,12 @@ if(isset($URI[1])){
 else
 {
     if(!$_SESSION['logindata']['isLogin']){
-        header('Location: /admin/login?error');
+        if($token == false){
+            header('Location: /admin/login?error');
+        }else{
+            header('Location: /admin/login');
+        }
+        
     }else{
         include "./static/pages/admin_pages/moderation.php";
     }
