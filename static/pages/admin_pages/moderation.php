@@ -43,6 +43,19 @@
       </div>
     </div>
   </nav>
+  <div class="container d-flex justify-content-center mt-2">
+    <div class="form-check form-check-inline">
+      <label class="form-check-label">Параметры отображения: </label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="cbFully" checked onchange="changeTypeOfFeedbacks(typeOfFeedbacks);">
+      <label class="form-check-label" for="inlineCheckbox1">С отзывом</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="cbEmpty" checked onchange="changeTypeOfFeedbacks(typeOfFeedbacks);">
+      <label class="form-check-label" for="inlineCheckbox2">Пустые отзывы</label>
+    </div>
+  </div>
   <div class="modal fade " id="editModal" tabindex="-1" aria-labelledby="feedbackModal" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content">

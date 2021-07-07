@@ -7,7 +7,7 @@
         $result = $result->fetch_assoc();
         if($result['token'] == $_GET['token']){
             $type = $_GET['type'];
-            $sql = "SELECT * FROM `feedbacks` WHERE moderation_type = $type";
+            $sql = "SELECT * FROM `feedbacks` WHERE moderation_type = $type  ORDER BY `feedbacks`.`id` DESC";
             $result = $mysqli->query($sql);
             $out = array();
             $out["size"] = $result->num_rows;

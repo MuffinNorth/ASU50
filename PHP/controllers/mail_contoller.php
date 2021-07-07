@@ -1,6 +1,6 @@
 <?php
-$fromEmail = "asu50@g.ru";
-$name = "admin";
+$fromEmail = "admin@projfair.tw1.ru";
+$name = "Администратор";
 include_once("./PHP/dbconnetion.php");
 include_once("./PHP/controllers/formater_controller.php");
 function sendMail($sbj, $title, $content, $ctx){
@@ -21,10 +21,11 @@ function sendMail($sbj, $title, $content, $ctx){
     global $mysqli;
     $sql = "SELECT value FROM `settings` WHERE property='footerMessage'";
     $footer = $mysqli->query($sql)->fetch_assoc()['value'];
-    fakeSendMail($to, $subject, $message ."\r\n". $footer, $mailheaders);
+    realSendMail($to, $subject, $message ."\r\n". $footer, $mailheaders);
 }
 function realSendMail($sbj, $title, $content, $mailheaders){
-
+    $msg = wordwrap($content, 70, "\r\n");
+    mail($sbj, $title, $msg, $mailheaders);
 }
 
 function fakeSendMail($sbj, $title, $content, $mailheaders){

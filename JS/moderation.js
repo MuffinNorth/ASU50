@@ -112,11 +112,25 @@ const getFeeds = () =>{
         type: typeOfFeedbacks
     }
     feedbacks = [];
+    const displayEmpty = $("#cbEmpty").is(':checked');
+    const displayFully = $("#cbFully").is(':checked');
+    console.log(displayEmpty)
     $("#feedholder").empty();
-    $.get('/api/aGetFeedbacks', data, (e)=>{
+    $.get('/api/aGetFeedbacks', data, (e) => {
         const array = JSON.parse(JSON.stringify(e))
         let end = [];
         for(let i = 1; i <= e.size; i++){
+            if(!displayEmpty){
+                if(array[i].review == ""){
+                    continue;
+                }
+            }
+
+            if(!displayFully){
+                if(array[i].review != ""){
+                    continue;
+                }
+            }
             if(array[i].review == ""){
                 end.push(array[i]);
             }else{
