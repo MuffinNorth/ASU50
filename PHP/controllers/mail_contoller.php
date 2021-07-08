@@ -14,8 +14,7 @@ function sendMail($sbj, $title, $content, $ctx){
         $subject = $title;
         $message = $content;
     }
-    
-    $mailheaders = "Content-type:text/plain;charset=windows-1251 \r\n";
+    $mailheaders = "Content-type:text/plain;charset=utf-8 \r\n";
     $mailheaders .= "From: $name <$fromEmail> \r\n";
     $mailheaders .= "Reply-To: $fromEmail \r\n";
     global $mysqli;
