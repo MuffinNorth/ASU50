@@ -175,7 +175,7 @@ if($openToFeeds == "false"){
         <p>Оглавление:</p>
         <a href="#father" class="link-primary text-decoration-none">«Отец кибернетики»</a>
         <a href="#bunny" class="link-primary text-decoration-none mt-2">Воспоминания выпускника АСУ-72-2. Натоцинская Ирина Иосифовна</a>
-        <a href="#history" class="link-primary text-decoration-none mt-2">История логотипа института кибернетики</a>
+        <a href="#history" class="link-primary text-decoration-none mt-2">Правдивые истории из студенческой жизни первых АСУ. Гутгарц Римма Давыдовна</a>
     </h2>
     <hr>
     <div id="father" class="text-center justify-content-center fs-5 fst-italic mt-5" >
@@ -308,7 +308,7 @@ if($openToFeeds == "false"){
         АСУ-72-2</strong></p>
     </div>
     <div id="history" class="row mt-3">
-        <h1 class="fw-bold" style="color: #0CADC2">Правдивые истории из студенческой жизни. Гутгарц Римма Давыдовна<br> им. Е.И. Попова</h1>  
+        <h1 class="fw-bold" style="color: #0CADC2">Правдивые истории из студенческой жизни. Гутгарц Римма Давыдовна</h1>  
     </div>
     <div class="row justify-content-center">
         <h2>История 1: Как мы сдавали черчение.</h2>
@@ -330,10 +330,9 @@ if($openToFeeds == "false"){
         <p>В корпусе «Г» на первом этаже была аудитория, в которой все стены и парты были исписаны словами, оканчивающимися на «…тор» (трактор, реактор, ректор, корректор и т.д.). Мы тоже, приходя в эту аудиторию, «дописывали» недостающие слова.</p>        
     </div>
 
-        <div class="row fs-5 mt-2">
+        <div class="row fs-4 mt-2">
         <p><strong>Римма Давыдовна Гутгарц,<br>
-            АСУ-72-1<br>
-            </p>
+            АСУ-72-1</strong></p>
     </div>
     <div class="row text-center justify-content-center" style="color: #082AA0;">
         <h2><strong>Поделиться своими воспоминаниями о студенческих годах<br>
