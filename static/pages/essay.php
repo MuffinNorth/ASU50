@@ -284,7 +284,7 @@ if($openToFeeds == "false"){
 
                   </div>
         <div class="col-10 col-md-6">
-            <img class="img-fluid" src="/static/imgs/asu-72-2(vipusk)" alt="Выпуск АСУ-72-2">   
+            <img class="img-fluid" src="/static/imgs/asu-72-2(vipusk).jpg" alt="Выпуск АСУ-72-2">   
         </div>   
     </div>
         
