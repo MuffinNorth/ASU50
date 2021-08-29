@@ -171,11 +171,13 @@ if($openToFeeds == "false"){
     <div class="row text-center gradient mt-3">
         <h1 class="display-3 fw-bold"><p>Очерки о специальности</p></h1>
     </div>
-    <h2 class="row text-center">
+    <h2 class="row text-left">
         <p>Оглавление:</p>
-        <a href="#father" class="link-primary text-decoration-none">«Отец кибернетики»</a>
-        <a href="#bunny" class="link-primary text-decoration-none mt-2">Воспоминания выпускника АСУ-72-2. Натоцинская Ирина Иосифовна</a>
-        <a href="#history" class="link-primary text-decoration-none mt-2">Правдивые истории из студенческой жизни первых АСУ. Гутгарц Римма Давыдовна</a>
+        <ul>
+        <li><a href="#father" class="link-primary text-decoration-none">«Отец кибернетики»</a></li>
+        <li><a href="#bunny" class="link-primary text-decoration-none mt-2">Воспоминания выпускника АСУ-72-2. Натоцинская Ирина Иосифовна</a></li>
+        <li><a href="#history" class="link-primary text-decoration-none mt-2">Правдивые истории из студенческой жизни первых АСУ. Гутгарц Римма Давыдовна</a></li>
+</ul>
     </h2>
     <hr>
     <div id="father" class="text-center justify-content-center fs-5 fst-italic mt-5" >
