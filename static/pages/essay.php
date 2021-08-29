@@ -275,6 +275,7 @@ if($openToFeeds == "false"){
         <p>«Постоянно чувствуешь, что знаешь меньше, чем следовало бы» —<br>
             профессор Е.И. Попов.</p>
     </div>
+</hr>
     <div id="bunny" class="row">
         <h1 class="mt-5 fw-bold" style="color: #0CADC2;;">Воспоминания выпускника АСУ-72-2. Натоцинская Ирина Иосифовна</h1>  
     </div>
@@ -310,7 +311,7 @@ if($openToFeeds == "false"){
         <p><strong>Натоцинская Ирина<br>
         АСУ-72-2</strong></p>
     </div>
-    
+    </hr>    
     <div id="history" class="row mt-3">
         <h1 class="fw-bold" style="color: #0CADC2">Правдивые истории из студенческой жизни. Гутгарц Римма Давыдовна</h1>  
     </div>
